@@ -10,9 +10,8 @@ object ApplicationBuild extends Build {
   val appDependencies = Seq(
     // Add your project dependencies here,
     "com.gravity" % "gravity-hpaste" % "0.1.11",
-    "org.apache.hadoop" % "hadoop-core" % "0.20-append-r1056497",
-    "org.apache.hbase" % "hbase" % "0.90.4",
-
+    "org.apache.hadoop" % "hadoop-test" % "0.20.2",
+    "org.apache.hbase" % "hbase" % "0.90.4" % "test" classifier "tests",
     jdbc,
     anorm
   )
