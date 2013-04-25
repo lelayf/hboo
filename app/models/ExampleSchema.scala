@@ -66,7 +66,10 @@ object ExampleSchema extends Schema {
   implicit val conf = LocalCluster.getTestConfiguration
 
   //A table definition, where the row keys are Strings
-  class ExampleTable extends HbaseTable[ExampleTable,String, ExampleTableRow](tableName = "schema_example",rowKeyClass=classOf[String], tableConfig = HbaseTableConfig(maxFileSizeInBytes=1073741824))
+  class ExampleTable extends HbaseTable[ExampleTable,String, ExampleTableRow](
+      tableName = "schema_example",
+      cache = new NoOpCache[ExampleTable,String, ExampleTableRow](),
+      rowKeyClass=classOf[String])
   {
     def rowBuilder(result:DeserializedResult) = new ExampleTableRow(this,result)
 
