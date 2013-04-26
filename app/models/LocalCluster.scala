@@ -19,7 +19,7 @@ import com.gravity.hbase.schema._
 object LocalCluster {
 
 
-  val conf = new HBaseConfiguration()
+  val conf = HBaseConfiguration.create()
   //val htest = new HBaseAdmin(conf)
 
   val htest = new HBaseTestingUtility()
